@@ -13,6 +13,12 @@ public class CalculadorEnvioTest {
 
 class CalculadorEnvio {
     public static double calcularCostoEnvio(double importe) {
-        return -1.0;
+        if (importe < 500) {
+            return 100.0;
+        }   else if (importe < 1000){
+            return 50.0;
+        }   else {
+            return 0.0;
+        }
     }
 }
