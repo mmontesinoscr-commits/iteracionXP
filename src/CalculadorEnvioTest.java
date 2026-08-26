@@ -12,13 +12,20 @@ public class CalculadorEnvioTest {
 }
 
 class CalculadorEnvio {
+    private static final double LimiteEnvioGratis = 1000.0;
+    private static final double LimiteEnvioDescuento = 500.0;
+
+    private static final double CostoEnvioAlto = 100.0;
+    private static final double CostoEnvioMedio = 50.0;
+    private static final double CostoEnvioGratis = 0.0;
+
     public static double calcularCostoEnvio(double importe) {
-        if (importe < 500) {
-            return 100.0;
-        }   else if (importe < 1000){
-            return 50.0;
-        }   else {
-            return 0.0;
+        if (importe >= LimiteEnvioGratis) {
+            return CostoEnvioGratis;
         }
+        if (importe >= LimiteEnvioDescuento) {
+            return CostoEnvioMedio;
+        }
+        return CostoEnvioAlto;
     }
 }
